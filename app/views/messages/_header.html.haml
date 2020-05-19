@@ -5,11 +5,20 @@
       .header-in--subtitle
         %p オススメ公園を分かち合うオンラインプラットフォーム
     .header__list__right
-      .header__list__right__userName
-        %p ユーザーネーム：
-        %p tarou
-      .header__list__right__login
-        %a(href="#")ログアウト
+      -if user_signed_in?
+        .header__list__right__userName
+          %p ユーザーネーム：
+          = image_tag "prof.png", alt: "user-image"
+          -# = image_tag {src: /@user.image class:"icon_image"}
+          
+          %p= current_user.name
+          = link_to edit_user_path(current_user) do
+            = icon('fas', 'cog', class: 'icon')
+        .header__list__right__login
+          = link_to "ログアウト", destroy_user_session_path	, method: :delete
+      -else
+        = link_to "新規登録", new_user_registration_path, class:"header__list__right__login"
+        = link_to "ログイン", user_session_path, class:"header__list__right__login"
   %ul.header__nav
     %li.header__nav__toyota
       %a(href="#")豊田市

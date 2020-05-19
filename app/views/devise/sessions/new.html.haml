@@ -1,0 +1,21 @@
+.wrapper
+  .header-in
+    .header-in__title
+      %h1 Connected Park
+      .header-in--subtitle
+        %p オススメ公園を分かち合うオンラインプラットフォーム
+    .header__list__right
+      .header__list__right__login
+        = render "devise/shared/links"
+  .login-title
+    %h2 Log in
+    .account-page
+      = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+        .field
+          .field-input
+            = f.email_field :email, autofocus: true, placeholder: 'E-Mail'
+          .field
+            .field-input
+              = f.password_field :password, autocomplete: "off", placeholder: 'Password(英数字8文字以上)'
+          .actions
+            = f.submit "Log in", class: 'create-btn'

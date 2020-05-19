@@ -14,6 +14,7 @@ module ConnectedPark
       g.helper false
       g.test_framework false
     end
+    config.i18n.default_locale = :ja
     # controller作成時にテストファイルを作成しないようにする
   end
 end

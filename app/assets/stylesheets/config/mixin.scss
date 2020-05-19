@@ -11,7 +11,7 @@
 @mixin content {
   text-align: center;
   width: 480px;
-  height: 560px;
+  height: 100%;
   padding: 5px;
   line-height: 5;
   border: solid lemonchiffon;
@@ -30,4 +30,9 @@
 @mixin title {
   font-size: 40px;
   font-family: cursive;
+}
+
+@mixin input-field {
+  width: 500px;
+  height: 50px;
 }
